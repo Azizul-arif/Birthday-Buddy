@@ -1,0 +1,24 @@
+<div class="container d-flex justify-content-center align-items-center"
+ style="min-height: 100vh;">
+ <div *ngIf="person.length > 0; else emptyBody">
+  <div class="card m-3" style="width: 30rem;">
+   <h4 class="text-center">{{ person.length }} birthday today</h4>
+   <div class="card-body d-flex col-12" *ngFor="let item of person"
+    style="padding: 10px;">
+    <div class="col-2">
+     <img class="image" src="{{ item.image }}" style="width: 100%;" />
+    </div>
+    <div class="col-10" style="padding-left: 10px;">
+     <h4 class="text-dark mb-1">{{ item.name }}</h4>
+     <p class="mb-1">{{ item.age }} years</p>
+    </div>
+   </div>
+   <button class="btn btn-primary" (click)="deleteALL()">Clear All</button>
+  </div>
+ </div>
+ <ng-template #emptyBody>
+  <div>
+   <h1>No Birthday today</h1>
+  </div>
+ </ng-template>
+</div>
